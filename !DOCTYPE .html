@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Bulb</title>
+  <style>
+    body {
+      background-color: #ADD8E6; /* Light blue background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .bulb {
+      width: 100px;
+      height: 150px;
+      background-color: #FFFFFF; /* White bulb */
+      border-radius: 50% 50% 40% 40%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .bulb:before {
+      content: '';
+      width: 120px;
+      height: 120px;
+      background-color: #ffd700; /* Yellow light inside the bulb */
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .bulb.active:before {
+      opacity: 1; /* Show yellow light when active */
+    }
+  </style>
+</head>
+<body>
+
+<div class="bulb" onclick="changeColor(this)"></div>
+
+<script>
+  function changeColor(element) {
+    element.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
